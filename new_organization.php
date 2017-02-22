@@ -22,32 +22,33 @@
     span:before{
     content:" "; 
     display:inline-block; 
-    width:32px;}  
+    width:32px;}
+
+    
 </style>
 <script type="text/javascript">
-
    function setfilename(val)
   {
     var fileName = val.substr(val.lastIndexOf("\\")+1, val.length);
    document.getElementById("uploadFile").value = fileName;
   }
 
-   function panfilename(val)
+   function filename(val)
   {
     var fileName = val.substr(val.lastIndexOf("\\")+1, val.length);
-   document.getElementById("pan_upload").value = fileName;
+   document.getElementById("upload1").value = fileName;
   }
 
-  function telefilename(val)
+  function setfilenameee(val)
   {
     var fileName = val.substr(val.lastIndexOf("\\")+1, val.length);
-   document.getElementById("telephone_upload").value = fileName;
+   document.getElementById("uploaddd").value = fileName;
   }
 
-  function bankfilename(val)
+  function setfilenamee(val)
   {
     var fileName = val.substr(val.lastIndexOf("\\")+1, val.length);
-   document.getElementById("bank_upload").value = fileName;
+   document.getElementById("uploadd").value = fileName;
   }
 </script>
 </head>
@@ -233,30 +234,6 @@ if(isset($_POST["save_btn"])) {
   $partner_designations = ltrim($partner_designations, ',');
   /*echo $partner_designations;*/
 
-  $type_of_work='';
-  for($j=0;$j<count($_POST['type_of_work']);$j++){
-    $type_of_work=$type_of_work.",".$_POST['type_of_work'][$j];
-  }
-  $type_of_work = ltrim($type_of_work, ',');
-
-  $status='';
-  for($j=0;$j<count($_POST['status']);$j++){
-    $status=$status.",".$_POST['status'][$j];
-  }
-  $status = ltrim($status, ',');
-
-  $date='';
-  for($j=0;$j<count($_POST['date']);$j++){
-    $date=$date.",".$_POST['date'][$j];
-  }
-  $date = ltrim($date, ',');
-
-  $comment='';
-  for($j=0;$j<count($_POST['comment']);$j++){
-    $comment=$comment.",".$_POST['comment'][$j];
-  }
-  $comment = ltrim($comment, ',');
-
   $url_org = 'https://kyc-application.herokuapp.com/add_new_organization/';
   $options_org = array(
     'http' => array(
@@ -273,10 +250,6 @@ if(isset($_POST["save_btn"])) {
                           'NO-OF-PARTNERS: '.$_POST['no_of_partners'],
                           'PARTNER-NAMES: '.$partner_names,
                           'PARTNER-DESIGNATIONS: '.$partner_designations,
-                          'TYPE-OF-WORK: '.$type_of_work,
-                          'STATUS: '.$status,
-                          'DATE: '.$date,
-                          'COMMENT: '.$comment,
                           ),
       'method'  => 'GET',
     ),
@@ -318,8 +291,8 @@ if(isset($_POST["save_btn"])) {
           <a class="mdl-navigation__link" href="">Contact</a>
         </nav>
       </div>
-
       </div>
+      
 
 <form class="form-horizontal" method="post" action="new_organization.php" enctype="multipart/form-data">
 
@@ -391,10 +364,10 @@ if(isset($_POST["save_btn"])) {
 <div class="form-group">
   <label class="col-md-4 control-label" for="filebutton">PAN Card:</label>
   <div class="col-md-4">
-    <input id="pan_upload" placeholder="Choose File" class="form-control input-md"/>
+    <input id="upload1" placeholder="Choose File" class="form-control input-md"/>
     <div class="fileUpload btn btn-info" style="margin-left:105%;margin-top:-12%;">
     <label style="font-weight:500;margin-bottom: 2px;">ATTACH</label>
-    <input id="pan_card" name="pan_card" type="file" class="upload" onchange="panfilename(this.value);" />
+    <input id="pan_card" name="pan_card" type="file" class="upload" onchange="filename(this.value);" />
   </div>
 </div>
 </div>
@@ -413,12 +386,11 @@ if(isset($_POST["save_btn"])) {
  <label class="col-md-4 control-label" for="checkboxes">Address Proof:</label>
  <div class="col-md-4">
    <label class="checkbox-inline" for="checkboxes-0">
-
     <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">Telephone</label>
-     <input id="telephone_upload" placeholder="Choose File" class="form-control input-md" style="width:68%;margin-left:32%;margin-top:-5%"/>
+     <input id="uploaddd" placeholder="Choose File" class="form-control input-md" style="width:68%;margin-left:32%;margin-top:-5%"/>
     <div class="fileUpload btn btn-info" style="margin-left:105%;margin-top:-12%;">
     <label style="font-weight:500;margin-bottom: 2px;">ATTACH</label>
-    <input id="telephone_bill" name="telephone_bill" type="file" class="upload" onchange="telefilename(this.value);" /> 
+    <input id="telephone_bill" name="telephone_bill" type="file" class="upload" onchange="setfilenameee(this.value);" /> 
  </div>
 </div>
 </div>
@@ -429,10 +401,10 @@ if(isset($_POST["save_btn"])) {
  <div class="col-md-4">
    <label class="checkbox-inline" for="checkboxes-0">
      <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">Bank Passbook:</label>
-     <input id="bank_upload" placeholder="Choose File" class="form-control input-md" style="width:68%;margin-left:32%;margin-top:-5%"/>
+     <input id="uploadd" placeholder="Choose File" class="form-control input-md" style="width:68%;margin-left:32%;margin-top:-5%"/>
     <div class="fileUpload btn btn-info" style="margin-left:105%;margin-top:-12%;">
     <label style="font-weight:500;margin-bottom: 2px;">ATTACH</label>
-    <input id="bank_pass_book" name="bank_pass_book" type="file" class="upload" onchange="bankfilename(this.value);" />     
+    <input id="bank_pass_book" name="bank_pass_book" type="file" class="upload" onchange="setfilenamee(this.value);" />     
  </div>
 </div>
 </div>
@@ -494,10 +466,10 @@ if(isset($_POST["save_btn"])) {
 <div class="form-group">
   <label class="col-md-4 control-label" for="selectbasic">Type of work</label>
   <div class="col-md-4">
-    <select id="type_of_work[]" name="type_of_work[]" class="form-control">
-      <option value="Option one">Option one</option>
-      <option value="Option two">Option two</option>
-      <option value="Option three">Option three</option>
+    <select id="selectbasic" name="selectbasic" class="form-control">
+      <option value="1">Option one</option>
+      <option value="2">Option two</option>
+      <option value="3">Option three</option>
     </select>
   </div>
 </div>
@@ -506,27 +478,27 @@ if(isset($_POST["save_btn"])) {
 <div class="form-group">
   <label class="col-md-4 control-label" for="selectbasic">Status</label>
   <div class="col-md-4">
-    <select id="status[]" name="status[]" class="form-control">
-      <option value="Pending">Pending Request</option>
-      <option value="Work in Process">Work in process</option>
-      <option value="Completed">Completed</option>
+    <select id="selectbasic" name="selectbasic" class="form-control">
+      <option value="PR">Pending Request</option>
+      <option value="WP">Work in Process</option>
+      <option value="CR">Completed Request</option>
     </select>
   </div>
 </div>
 <!--date-->
-  <div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">DATE</label>  
-  <div class="col-md-4">
-  <input id="date[]" name="date[]" value="<?php echo $_POST['date'] ?>" style="width:100%;margin-left:-0.4%;margin-top:0%;" type="Text" value="" id="example-date-input" type="text" class="form-control input-md">
-    
+<div class="form-group row">
+  <label for="example-date-input" class="col-2 col-form-label" style="margin-left:29.5%;">Date:</label>
+  <div class="col-10">
+    <input class="form-control" id="date" name="date" value="<?php echo $_POST['date'] ?>" style="width:31%;margin-left:34.6%;margin-top:-2%;" type="date" value="" id="example-date-input">
   </div>
 </div>
+
 
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Comment</label>  
   <div class="col-md-4">
-  <input id="comment[]" name="comment[]" type="text" placeholder="" class="form-control input-md">
+  <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
     
   </div>
 </div>
@@ -593,11 +565,7 @@ if(isset($_POST["save_btn"])) {
         e.preventDefault();
         if(x < max_fields){ //max input box allowed
             x++; //text box increment
-<<<<<<< HEAD
-            $(wrapper).prepend('<br><div style="margin-left:50%;"><div class="form-group"><label class="control-label" for="selectbasic" style="margin-left:-325px;">Type of work</label><div class="col-md-6"><select id="selectbasic" name="selectbasic" class="form-control" style="margin-left:9%;width:208%"><option value="1">Option one</option><option value="2">Option two</option><option value="3">Option three</option></select></div></div><div class="form-group"> <label class="col-md-4 control-label" for="selectbasic" style="margin-left:-29%">Status</label><div class="col-md-6"><select id="selectbasic" name="selectbasic" style="width:210%;margin-left:-1%;" class="form-control"><option value="PR">Pending Request</option><option value="WP">Work in Process</option><option value="CR">Completed Request</option></select></div></div><div class="form-group row"><label for="example-date-input" class="col-2 col-form-label" style="margin-left:-8.5%;";">DATE</label><div class="col-10"><input class="form-control" id="date" name="date" value="<?php echo $_POST['date'] ?>" style="width:91%;margin-left:6.6%;margin-top:-6%;" type="text" value="" id="example-date-input"></div></div><div class="form-group"><label class="col-md-4 control-label" for="textinput" style="margin-left:-29%">Comment</label><div class="col-md-4"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" style="width:342%"></div></div></center><a href="#" class="remove_field"><img src="images/del24.png" style="margin-left: 443px; margin-top: -81px;"></a></a></div>'); //add input box\
-=======
             $(wrapper).prepend('<br><div style="margin-left:50%;"><div class="form-group"><label class="control-label" for="selectbasic" style="margin-left:-325px;">Type of work</label><div class="col-md-6"><select id="selectbasic" name="selectbasic" class="form-control" style="margin-left:9%;width:208%"><option value="1">Option one</option><option value="2">Option two</option><option value="3">Option three</option></select></div></div><div class="form-group"> <label class="col-md-4 control-label" for="selectbasic" style="margin-left:-29%">Status</label><div class="col-md-6"><select id="selectbasic" name="selectbasic" style="width:210%;margin-left:-1%;" class="form-control"><option value="PR">Pending Request</option><option value="WP">Work in Process</option><option value="CR">Completed Request</option></select></div></div><div class="form-group row"><label for="example-date-input" class="col-2 col-form-label" style="margin-left:-8.5%;";">DATE</label><div class="col-10"><input class="form-control" id="date" name="date" value="<?php echo $_POST['date'] ?>" style="width:91%;margin-left:6.6%;margin-top:-6%;" type="date" value="" id="example-date-input"></div></div><div class="form-group"><label class="col-md-4 control-label" for="textinput" style="margin-left:-29%">Comment</label><div class="col-md-4"><input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md" style="width:342%"></div></div></center><a href="#" class="remove_field"><img src="images/del24.png" style="margin-left: 443px; margin-top: -81px;"></a></a></div>'); //add input box\
->>>>>>> 296a2151c034cc52fefea6297e1fdb3d35b0403c
         }
     });
     

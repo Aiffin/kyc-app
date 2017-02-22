@@ -58,30 +58,14 @@ td, th {
 </style>
 </head>
 <body style="background-color:#E8E8E8;overflow-x:hidden;">
-
-<?php
-$url_missing_report = 'https://kyc-application.herokuapp.com/missing_report/';
-$options_missing_report = array(
-  'http' => array(
-    'method'  => 'GET',
-  ),
-);
-$context_missing_report = stream_context_create($options_missing_report);
-$output_missing_report = file_get_contents($url_missing_report, false,$context_missing_report);
-/*echo count($output_missing_report);*/
-$arr_missing_report = json_decode($output_missing_report,true);
-/*echo count($arr_missing_report);*/
-
-?>
-
 <div class="demo-layout-transparent mdl-layout mdl-js-layout">
       <header style="background-color:#08426a;height:110px;-webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;
      -moz-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;
      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;" class="mdl-layout__header mdl-layout__header--transparent">
         <div class="mdl-layout__header-row" >
 
-        <img style="margin-top:5%;margin-left:28px;width:50px;heigh:50px" src="images/green.png"></img>
-<h5 style="margin-left:35%;margin-top:9%;">Missing Report</h5>
+        <img style="margin-top:5%;margin-left:28px;width:50px;height:50px" src="images/green.png"></img>
+<h5 style="margin-left:35%;margin-top:9%;">Pending Request</h5>
          <span class="mdl-layout-title" style="margin-left:26%;margin-top:7%;">KYChome</span>
           <!-- Add spacer, to align navigation to the right -->
       </header>
@@ -100,8 +84,8 @@ $arr_missing_report = json_decode($output_missing_report,true);
       </div>
         </div>
       </header>
-     
- <div class="container">
+
+<div class="container">
   <div class="row" style="margin-top:4%;"> 
 
 <table id="example" class="mdl-data-table" cellspacing="0" style="margin-left:12%;width:75%;margin-top:12%;">
@@ -128,3 +112,4 @@ $arr_missing_report = json_decode($output_missing_report,true);
 </div>
 </body>
 </html>
+

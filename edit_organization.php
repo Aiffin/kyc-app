@@ -357,11 +357,11 @@ if(isset($_POST["edit_btn"])) {
     
 
 <?php if($arr_search['response'][0]['organization_details']['registration'] == 1 ){
-  $checked1="checked";
-  $checked2="";
+	$checked1="checked";
+	$checked2="";
 }if($arr_search['response'][0]['organization_details']['registration'] == 0 ){
-  $checked1="";
-  $checked2="checked";
+	$checked1="";
+	$checked2="checked";
 }
 ?>
     <label class="radio-inline" for="radios-0"> 
@@ -471,9 +471,9 @@ if(isset($_POST["edit_btn"])) {
    <label class="checkbox-inline" for="checkboxes-0">
   <div class="col-md-3">
     <?php if($arr_search['response'][0]['telephone_bill_details'][0]['name'] != ''){
-      $check_box_select1="checked";
+   		$check_box_select1="checked";
     }else{
-      $check_box_select1="";
+    	$check_box_select1="";
     }?>
      <input <?php echo $check_box_select1;?> type="checkbox" name="checkboxes" id="checkboxes-0" value="1">Telephone</label>
   </div>
@@ -523,10 +523,10 @@ if(isset($_POST["edit_btn"])) {
 
 <div class="col-md-3">
      <?php if($arr_search['response'][0]['pass_book_details'][0]['name'] != ''){
-      $check_box_select2="checked";
-      
+   		$check_box_select2="checked";
+   		
      }else{
-      $check_box_select2="";
+    	$check_box_select2="";
     }?>
      <input <?php echo $check_box_select2;?> type="checkbox" name="checkboxes" id="checkboxes-0" value="1">Bank Passbook</label>
 </div>
@@ -695,5 +695,6 @@ function goBack() {
 
 </body>
 </html>
+
 
 

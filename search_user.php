@@ -70,14 +70,13 @@ echo $_POST['search'];*/
 
 /*echo $_POST['name'];*/
 
-$text=$_GET['id'];
+$text=$_GET['text'];
 
 $url_search = 'https://kyc-application.herokuapp.com/search/';
 $options_search = array(
   'http' => array(
     'header'  => array(
-                  'IS-USER: 1',
-                  'PK: '.$text,
+                  'TEXT: '.$text,
                 ),
     'method'  => 'GET',
   ),
@@ -151,7 +150,7 @@ echo $arr_search['response'][0]['user_details']['aadhar_no'];*/
 ?>
 
 <div style="margin-top:10%">
- <input type="hidden" value="<?php echo $arr_search['response'][0]['user_details']['pk'] ?>" name="user_id" id="user_id"></input>
+ <input type="hidden" value="<?php echo $arr_search['response'][0]['user_details']['pk'] ?>" name="org_id" id="org_id"></input>
 
 <img class="profile-pic" style="margin-left:77%;position:absolute;z-index:2;" src="<?php echo $arr_img[0]['url']; ?>" />
 <div class="upload-button" style="position:absolute;z-index:2;margin-left:79%;margin-top:13%;"><button disabled>Upload Image</button></div>

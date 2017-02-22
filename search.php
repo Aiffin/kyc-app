@@ -39,10 +39,10 @@ if(isset($_POST['submit'])){
   /*echo $output_org;*/
   $arr_org = json_decode($output_org,true);
   if($arr_org['response'][0]['message'] == 'organization'){
-    $string1="<script>window.location.href='search_organization.php?id=".$arr_org['response'][0]['pk']."'</script>";
+    $string1="<script>window.location.href='search_organization.php?text=".$arr_org['response'][0]['text']."'</script>";
     echo $string1;
   }else{
-    $string2="<script>window.location.href='search_user.php?id=".$arr_org['response'][0]['pk']."'</script>";
+    $string2="<script>window.location.href='search_user.php?text=".$arr_org['response'][0]['text']."'</script>";
     echo $string2;
   }
 }
@@ -118,7 +118,7 @@ if(isset($_POST['submit'])){
     </div>
 
     <div class="col-sm-2">
-      <a href="search_on_status.php">
+      <a href="pending_req.php">
       <button style="background-color:#74b25e;color:white;width:200px;height:60px;margin-top:12%;margin-left:76%;" class="mdl-button mdl-js-button mdl-button--raised">
       <p style="margin-top:7px;">Pending<br>Request</p>
       </button>
