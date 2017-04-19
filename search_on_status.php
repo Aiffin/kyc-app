@@ -98,7 +98,7 @@ session_start();
      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;" class="mdl-layout__header">
     <div class="mdl-layout__header-row" >
         <a href="search.php"><img id="logo1" src="images/green.png"></img></a>
-<span class="mdl-layout-title" id="title3"><?php echo $_GET['status'] ?></span>
+<span class="mdl-layout-title" id="title4"><?php echo $_GET['status'] ?></span>
         <span class="mdl-layout-title" id="title1" style="text-align:center">KYCAPP</span>
    <a href="logout.php"><img id="logout" style="" src="images/logout_btn.png"></img></a>         <!-- Add spacer, to align navigation to the right -->
           </div>
