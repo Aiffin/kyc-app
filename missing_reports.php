@@ -279,7 +279,7 @@ $('#test').click(function() {
     <td><button class="btn btn-success" style="color:white;opacity: 0.5;" disabled>Generate Link</button>
 <!--     <input type="submit" name="view_details" id="view_details" value="View"></input>
  -->
-     <button class="btn btn-success" name="view_details" id="view_details" style="color:white;">View</button>
+     <button class="btn btn-success" name="view_details" id="view_details" style="color:white;margin-left:1%">View</button>
     
  </td>
   </tr>
